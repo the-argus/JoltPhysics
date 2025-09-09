@@ -103,7 +103,7 @@ HeightFieldShapeSettings::HeightFieldShapeSettings(const float *inSamples, Vec3A
 ShapeSettings::ShapeResult HeightFieldShapeSettings::Create() const
 {
 	if (mCachedResult.IsEmpty())
-		Ref<Shape> shape = new HeightFieldShape(*this, mCachedResult);
+		Ref<Shape> shape = IntoShared(new HeightFieldShape(*this, mCachedResult));
 	return mCachedResult;
 }
 
@@ -751,7 +751,7 @@ HeightFieldShape::~HeightFieldShape()
 
 Ref<HeightFieldShape> HeightFieldShape::Clone() const
 {
-	Ref<HeightFieldShape> clone = new HeightFieldShape;
+	Ref<HeightFieldShape> clone = IntoShared(new HeightFieldShape);
 	clone->SetUserData(GetUserData());
 
 	clone->mOffset = mOffset;

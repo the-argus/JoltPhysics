@@ -115,7 +115,7 @@ void MeshShapeSettings::Sanitize()
 ShapeSettings::ShapeResult MeshShapeSettings::Create() const
 {
 	if (mCachedResult.IsEmpty())
-		Ref<Shape> shape = new MeshShape(*this, mCachedResult);
+		Ref<Shape> shape = IntoShared(new MeshShape(*this, mCachedResult));
 	return mCachedResult;
 }
 

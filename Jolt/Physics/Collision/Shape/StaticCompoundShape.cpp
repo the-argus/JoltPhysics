@@ -53,13 +53,13 @@ ShapeSettings::ShapeResult StaticCompoundShapeSettings::Create(TempAllocator &in
 				settings.mRotation = s.mRotation;
 				settings.mInnerShape = s.mShape;
 				settings.mInnerShapePtr = s.mShapePtr;
-				Ref<Shape> shape = new RotatedTranslatedShape(settings, mCachedResult);
+				Ref<Shape> shape = IntoShared(new RotatedTranslatedShape(settings, mCachedResult));
 			}
 		}
 		else
 		{
 			// Build a regular compound shape
-			Ref<Shape> shape = new StaticCompoundShape(*this, inTempAllocator, mCachedResult);
+			Ref<Shape> shape = IntoShared(new StaticCompoundShape(*this, inTempAllocator, mCachedResult));
 		}
 	}
 	return mCachedResult;

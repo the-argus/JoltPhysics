@@ -26,7 +26,7 @@ JPH_IMPLEMENT_SERIALIZABLE_VIRTUAL(ScaledShapeSettings)
 ShapeSettings::ShapeResult ScaledShapeSettings::Create() const
 {
 	if (mCachedResult.IsEmpty())
-		Ref<Shape> shape = new ScaledShape(*this, mCachedResult);
+		Ref<Shape> shape = IntoShared(new ScaledShape(*this, mCachedResult));
 	return mCachedResult;
 }
 

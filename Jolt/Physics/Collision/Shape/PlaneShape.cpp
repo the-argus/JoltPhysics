@@ -38,7 +38,7 @@ JPH_IMPLEMENT_SERIALIZABLE_VIRTUAL(PlaneShapeSettings)
 ShapeSettings::ShapeResult PlaneShapeSettings::Create() const
 {
 	if (mCachedResult.IsEmpty())
-		Ref<Shape> shape = new PlaneShape(*this, mCachedResult);
+		Ref<Shape> shape = IntoShared(new PlaneShape(*this, mCachedResult));
 	return mCachedResult;
 }
 

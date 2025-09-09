@@ -22,7 +22,7 @@ ShapeSettings::ShapeResult MutableCompoundShapeSettings::Create() const
 {
 	// Build a mutable compound shape
 	if (mCachedResult.IsEmpty())
-		Ref<Shape> shape = new MutableCompoundShape(*this, mCachedResult);
+		Ref<Shape> shape = IntoShared(new MutableCompoundShape(*this, mCachedResult));
 
 	return mCachedResult;
 }
@@ -57,7 +57,7 @@ MutableCompoundShape::MutableCompoundShape(const MutableCompoundShapeSettings &i
 
 Ref<MutableCompoundShape> MutableCompoundShape::Clone() const
 {
-	Ref<MutableCompoundShape> clone = new MutableCompoundShape();
+	Ref<MutableCompoundShape> clone = IntoShared(new MutableCompoundShape());
 	clone->SetUserData(GetUserData());
 
 	clone->mCenterOfMass = mCenterOfMass;

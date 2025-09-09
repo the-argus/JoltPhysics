@@ -33,7 +33,7 @@ JPH_IMPLEMENT_SERIALIZABLE_VIRTUAL(SphereShapeSettings)
 ShapeSettings::ShapeResult SphereShapeSettings::Create() const
 {
 	if (mCachedResult.IsEmpty())
-		Ref<Shape> shape = new SphereShape(*this, mCachedResult);
+		Ref<Shape> shape = IntoShared(new SphereShape(*this, mCachedResult));
 	return mCachedResult;
 }
 

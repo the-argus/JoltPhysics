@@ -35,7 +35,7 @@ JPH_IMPLEMENT_SERIALIZABLE_VIRTUAL(ConvexHullShapeSettings)
 ShapeSettings::ShapeResult ConvexHullShapeSettings::Create() const
 {
 	if (mCachedResult.IsEmpty())
-		Ref<Shape> shape = new ConvexHullShape(*this, mCachedResult);
+		Ref<Shape> shape = IntoShared(new ConvexHullShape(*this, mCachedResult));
 	return mCachedResult;
 }
 

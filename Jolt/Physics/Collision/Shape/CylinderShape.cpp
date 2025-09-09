@@ -83,7 +83,7 @@ static const StaticArray<Vec3, 96> sUnitCylinderTriangles = []() {
 ShapeSettings::ShapeResult CylinderShapeSettings::Create() const
 {
 	if (mCachedResult.IsEmpty())
-		Ref<Shape> shape = new CylinderShape(*this, mCachedResult);
+		Ref<Shape> shape = IntoShared(new CylinderShape(*this, mCachedResult));
 	return mCachedResult;
 }
 

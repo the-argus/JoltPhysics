@@ -43,7 +43,7 @@ JPH_IMPLEMENT_SERIALIZABLE_VIRTUAL(TriangleShapeSettings)
 ShapeSettings::ShapeResult TriangleShapeSettings::Create() const
 {
 	if (mCachedResult.IsEmpty())
-		Ref<Shape> shape = new TriangleShape(*this, mCachedResult);
+		Ref<Shape> shape = IntoShared(new TriangleShape(*this, mCachedResult));
 	return mCachedResult;
 }
 

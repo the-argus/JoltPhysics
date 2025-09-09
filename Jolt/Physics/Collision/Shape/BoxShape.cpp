@@ -48,7 +48,7 @@ static const Vec3 sUnitBoxTriangles[] = {
 ShapeSettings::ShapeResult BoxShapeSettings::Create() const
 {
 	if (mCachedResult.IsEmpty())
-		Ref<Shape> shape = new BoxShape(*this, mCachedResult);
+		Ref<Shape> shape = IntoShared(new BoxShape(*this, mCachedResult));
 	return mCachedResult;
 }
 

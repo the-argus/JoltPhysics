@@ -59,11 +59,11 @@ ShapeSettings::ShapeResult CapsuleShapeSettings::Create() const
 		if (IsValid() && IsSphere())
 		{
 			// If the capsule has no height, use a sphere instead
-			shape = new SphereShape(mRadius, mMaterial);
+			shape = IntoShared(new SphereShape(mRadius, mMaterial)).GetPtr();
 			mCachedResult.Set(shape);
 		}
 		else
-			shape = new CapsuleShape(*this, mCachedResult);
+			shape = IntoShared(new CapsuleShape(*this, mCachedResult)).GetPtr();
 	}
 	return mCachedResult;
 }

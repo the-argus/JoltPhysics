@@ -26,7 +26,7 @@ JPH_IMPLEMENT_SERIALIZABLE_VIRTUAL(RotatedTranslatedShapeSettings)
 ShapeSettings::ShapeResult RotatedTranslatedShapeSettings::Create() const
 {
 	if (mCachedResult.IsEmpty())
-		Ref<Shape> shape = new RotatedTranslatedShape(*this, mCachedResult);
+		Ref<Shape> shape = IntoShared(new RotatedTranslatedShape(*this, mCachedResult));
 	return mCachedResult;
 }
 

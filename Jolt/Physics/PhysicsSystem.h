@@ -32,7 +32,7 @@ public:
 	JPH_OVERRIDE_NEW_DELETE
 
 	/// Constructor / Destructor
-								PhysicsSystem()												: mContactManager(mPhysicsSettings) JPH_IF_ENABLE_ASSERTS(, mConstraintManager(&mBodyManager)) { }
+								PhysicsSystem();
 								~PhysicsSystem();
 
 	/// The maximum value that can be passed to Init for inMaxBodies.
@@ -319,8 +319,8 @@ private:
 	BodyManager					mBodyManager;
 
 	/// Body locking interfaces
-	BodyLockInterfaceNoLock		mBodyLockInterfaceNoLock { mBodyManager };
-	BodyLockInterfaceLocking	mBodyLockInterfaceLocking { mBodyManager };
+	BodyLockInterfaceNoLock		mBodyLockInterfaceNoLock;
+	BodyLockInterfaceLocking	mBodyLockInterfaceLocking;
 
 	/// Body interfaces
 	BodyInterface				mBodyInterfaceNoLock;

@@ -69,6 +69,15 @@ static const Color cColorSoftBodyCollide = Color::sGetDistinctColor(21);
 static const Color cColorSoftBodySimulate = Color::sGetDistinctColor(22);
 static const Color cColorSoftBodyFinalize = Color::sGetDistinctColor(23);
 
+
+PhysicsSystem::PhysicsSystem()
+	: mContactManager(mPhysicsSettings),
+	  mBodyLockInterfaceNoLock(mBodyManager),
+	  mBodyLockInterfaceLocking(mBodyManager)
+	  JPH_IF_ENABLE_ASSERTS(, mConstraintManager(&mBodyManager))
+{
+}
+
 PhysicsSystem::~PhysicsSystem()
 {
 	// Remove broadphase
